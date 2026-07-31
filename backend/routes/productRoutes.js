@@ -13,7 +13,7 @@ const {
 
 
 // Add Product
-router.post("/add", upload.array("images",5), addProduct);
+router.post("/add", upload.single("image"), addProduct);
 
 
 // Get Products
@@ -25,7 +25,7 @@ router.get("/:id", getSingleProduct);
 
 
 // Update Product
-router.put("/update/:id", upload.array("images",5), updateProduct);
+router.put("/update/:id", upload.single("image"), updateProduct);
 
 
 // Delete Product
