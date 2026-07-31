@@ -48,9 +48,9 @@ if(req.files){
 
       description,
 
-      image,
+  images,
 
-      variants: JSON.parse(variants)
+variants: JSON.parse(variants)
 
     });
 
