@@ -30,11 +30,11 @@ const addProduct = async (req, res) => {
     const category = subCategoryExists.category;
 
 
-    let image = "";
+  let images = [];
 
-    if(req.file){
-      image = req.file.filename;
-    }
+if(req.files){
+  images = req.files.map((file)=>file.filename);
+}
 
 
 
