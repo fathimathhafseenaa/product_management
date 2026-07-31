@@ -394,16 +394,11 @@ export default function ProductDetails() {
               <div className="pd-main-image">
 
 
-                <img
-
-                  src={`http://localhost:5000/uploads/${product.image}`}
-
-                  alt={product.productName}
-
-                  className="pd-main-img"
-
-                />
-
+             <img
+  src={`${import.meta.env.VITE_BACKEND_URL}/uploads/${product.image}`}
+  alt={product.productName}
+  className="pd-main-img"
+/>
 
               </div>
 
@@ -418,15 +413,11 @@ export default function ProductDetails() {
                 <div className="pd-thumb">
 
 
-                  <img
-
-                    src={`http://localhost:5000/uploads/${product.image}`}
-
-                    alt={product.productName}
-
-                    className="pd-thumb-img"
-
-                  />
+                 <img
+  src={`${import.meta.env.VITE_BACKEND_URL}/uploads/${product.image}`}
+  alt={product.productName}
+  className="pd-thumb-img"
+/>
 
 
                 </div>
