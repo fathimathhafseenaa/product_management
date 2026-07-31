@@ -7,13 +7,14 @@ import ProductDetails from "./pages/ProductDetails/ProductDetails";
 import Wishlist from "./pages/whishlist/Wishlist";
 import AddCategory from "./pages/AddCategory/AddCategory";
 import AddSubCategory from "./pages/AddSubCategory/AddSubCategory";
-import AddProduct from "./pages/AddProduct/AddProduct";
+import AddProduct from "./pages/Addproduct/AddProduct";
 
 
+// Protected Route
 function ProtectedRoute({ children }) {
-  const user = localStorage.getItem("userId");
+  const token = localStorage.getItem("token");
 
-  return user ? children : <Navigate to="/" />;
+  return token ? children : <Navigate to="/" />;
 }
 
 
@@ -28,7 +29,7 @@ function App() {
       <Route path="/signup" element={<Signup />} />
 
 
-      {/* Protected Pages */}
+      {/* Protected Home */}
       <Route
         path="/home"
         element={
@@ -38,6 +39,8 @@ function App() {
         }
       />
 
+
+      {/* Protected Product Details */}
       <Route
         path="/product/:id"
         element={
@@ -47,6 +50,8 @@ function App() {
         }
       />
 
+
+      {/* Protected Wishlist */}
       <Route
         path="/wishlist"
         element={
@@ -56,6 +61,8 @@ function App() {
         }
       />
 
+
+      {/* Protected Add Category */}
       <Route
         path="/add-category"
         element={
@@ -65,6 +72,8 @@ function App() {
         }
       />
 
+
+      {/* Protected Add Sub Category */}
       <Route
         path="/add-subcategory"
         element={
@@ -74,6 +83,8 @@ function App() {
         }
       />
 
+
+      {/* Protected Add Product */}
       <Route
         path="/add-product"
         element={
@@ -82,6 +93,7 @@ function App() {
           </ProtectedRoute>
         }
       />
+
 
     </Routes>
   );
