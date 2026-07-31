@@ -30,11 +30,11 @@ const addProduct = async (req, res) => {
     const category = subCategoryExists.category;
 
 
-  let images = [];
+    let image = "";
 
-if(req.files){
-  images = req.files.map((file)=>file.filename);
-}
+    if(req.file){
+      image = req.file.filename;
+    }
 
 
 
@@ -48,9 +48,9 @@ if(req.files){
 
       description,
 
-  images,
+      image,
 
-variants: JSON.parse(variants)
+      variants: JSON.parse(variants)
 
     });
 
@@ -120,12 +120,12 @@ const getProducts = async (req, res) => {
 
 
 
-
 // Update Product
 const updateProduct = async (req, res) => {
   try {
 
     const { id } = req.params;
+
 
     const {
       productName,
@@ -133,6 +133,7 @@ const updateProduct = async (req, res) => {
       description,
       variants,
     } = req.body;
+
 
 
     let updateData = {
@@ -148,14 +149,14 @@ const updateProduct = async (req, res) => {
     };
 
 
-    // Multiple image upload
-    if(req.files){
 
-      updateData.images = req.files.map(
-        (file)=>file.filename
-      );
+    // New image upload
+    if (req.file) {
+
+      updateData.image = req.file.filename;
 
     }
+
 
 
     const product = await Product.findByIdAndUpdate(
@@ -169,7 +170,8 @@ const updateProduct = async (req, res) => {
     );
 
 
-    if(!product){
+
+    if (!product) {
 
       return res.status(404).json({
 
@@ -180,6 +182,7 @@ const updateProduct = async (req, res) => {
       });
 
     }
+
 
 
     res.status(200).json({
@@ -193,7 +196,9 @@ const updateProduct = async (req, res) => {
     });
 
 
-  } catch(error){
+
+  } catch(error) {
+
 
     res.status(500).json({
 
@@ -203,8 +208,11 @@ const updateProduct = async (req, res) => {
 
     });
 
+
   }
 };
+
+
 
 
 // Delete Product
