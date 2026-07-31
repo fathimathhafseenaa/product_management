@@ -25,7 +25,8 @@ export default function EditProductModal({
 
   const [variants,setVariants] = useState([]);
 
-  const [image,setImage] = useState(null);
+  // Multiple Images
+  const [images,setImages] = useState([]);
 
   const [loading,setLoading] = useState(false);
 
@@ -41,6 +42,7 @@ export default function EditProductModal({
     }
 
   },[open,productId]);
+
 
 
 
@@ -162,14 +164,18 @@ export default function EditProductModal({
 
 
 
-      if(image){
+      // Multiple Images Upload
+
+      images.forEach((image)=>{
 
         formData.append(
-          "image",
+          "images",
           image
         );
 
-      }
+      });
+
+
 
 
 
@@ -187,7 +193,6 @@ export default function EditProductModal({
 
 
       onUpdated();
-
 
 
       onClose();
@@ -210,6 +215,7 @@ export default function EditProductModal({
 
 
   };
+
 
 
 
@@ -243,17 +249,25 @@ export default function EditProductModal({
 
 
 
+
         <label>
           Product Name
         </label>
 
+
         <input
+
           className="ep-input"
+
           value={productName}
+
           onChange={(e)=>
             setProductName(e.target.value)
           }
+
         />
+
+
 
 
 
@@ -264,12 +278,17 @@ export default function EditProductModal({
         </label>
 
 
+
         <select
+
           className="ep-input"
+
           value={subCategory}
+
           onChange={(e)=>
             setSubCategory(e.target.value)
           }
+
         >
 
 
@@ -278,14 +297,20 @@ export default function EditProductModal({
           </option>
 
 
+
           {
             subCategories.map((sub)=>(
 
               <option
+
                 key={sub._id}
+
                 value={sub._id}
+
               >
+
                 {sub.subCategoryName}
+
               </option>
 
             ))
@@ -299,18 +324,27 @@ export default function EditProductModal({
 
 
 
+
+
         <label>
           Description
         </label>
 
 
         <input
+
           className="ep-input"
+
           value={description}
+
           onChange={(e)=>
             setDescription(e.target.value)
           }
+
         />
+
+
+
 
 
 
@@ -322,19 +356,27 @@ export default function EditProductModal({
         </label>
 
 
+
         {
           variants.map((v,index)=>(
 
 
             <div
+
               className="ep-variant"
+
               key={index}
+
             >
 
 
+
               <input
+
                 className="ep-small"
+
                 value={v.ram}
+
                 onChange={(e)=>
                   updateVariant(
                     index,
@@ -342,13 +384,18 @@ export default function EditProductModal({
                     e.target.value
                   )
                 }
+
               />
 
 
 
+
               <input
+
                 className="ep-small"
+
                 value={v.price}
+
                 onChange={(e)=>
                   updateVariant(
                     index,
@@ -356,13 +403,18 @@ export default function EditProductModal({
                     e.target.value
                   )
                 }
+
               />
 
 
 
+
               <input
+
                 className="ep-small"
+
                 value={v.qty}
+
                 onChange={(e)=>
                   updateVariant(
                     index,
@@ -370,7 +422,9 @@ export default function EditProductModal({
                     e.target.value
                   )
                 }
+
               />
+
 
 
             </div>
@@ -384,19 +438,30 @@ export default function EditProductModal({
 
 
 
+
+
+
         <label>
-          Change Image
+          Change Images
         </label>
 
 
+
         <input
+
           type="file"
+
+          multiple
+
           onChange={(e)=>
-            setImage(
-              e.target.files[0]
+            setImages(
+              Array.from(e.target.files)
             )
           }
+
         />
+
+
 
 
 
@@ -406,10 +471,15 @@ export default function EditProductModal({
         <div className="ep-actions">
 
 
+
           <button
+
             className="ep-update-btn"
+
             onClick={handleSubmit}
+
             disabled={loading}
+
           >
 
             {
@@ -420,20 +490,30 @@ export default function EditProductModal({
               "UPDATE"
             }
 
+
           </button>
+
+
 
 
 
           <button
+
             className="ep-cancel-btn"
+
             onClick={onClose}
+
           >
+
             DISCARD
+
           </button>
 
 
 
+
         </div>
+
 
 
 
