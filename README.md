@@ -6,22 +6,37 @@ This application allows users to manage product categories, sub-categories, prod
 
 ---
 
+# Live Demo
+
+Frontend:  
+https://product-management-p98kl5ehd-hafseenas-projects.vercel.app
+
+# GitHub Repository
+
+https://github.com/fathimathhafseenaa/product_management
+
+---
+
 # Features
 
 ## Authentication
+
 - User Signup
 - User Login
 
 ## Category Management
+
 - Add Category
 - Display Categories
 
 ## Sub Category Management
+
 - Add Sub Category
 - Display Sub Categories
 - Filter Products by Sub Category
 
 ## Product Management
+
 - Add Product
 - Edit Product
 - Display Products
@@ -29,19 +44,23 @@ This application allows users to manage product categories, sub-categories, prod
 - Multiple Product Variants
 
 Each product supports multiple variants with:
+
 - RAM
 - Price
 - Quantity
 
 ## Wishlist
+
 - Add Product to Wishlist
 - Remove Product from Wishlist
 - View Wishlist
 
 ## Search
+
 - Search Products by Product Name
 
 ## Pagination
+
 - Product Listing Pagination
 
 ---
@@ -70,7 +89,7 @@ Each product supports multiple variants with:
 
 # Project Structure
 
-```
+```text
 Product_Management/
 │
 ├── backend/
@@ -95,10 +114,10 @@ Product_Management/
 
 # Installation
 
-## Clone Repository
+## Clone the Repository
 
 ```bash
-git clone https://github.com/fathimathhafseenaa/product_management
+git clone https://github.com/fathimathhafseenaa/product_management.git
 ```
 
 Move into the project folder.
@@ -131,13 +150,13 @@ MONGO_URI=your_mongodb_connection_string
 JWT_SECRET=your_secret_key
 ```
 
-Start Backend Server
+Start the backend server.
 
 ```bash
 npm start
 ```
 
-Backend will run on
+The backend will run on:
 
 ```
 http://localhost:5000
@@ -159,13 +178,13 @@ Install dependencies.
 npm install
 ```
 
-Run Frontend
+Run the frontend.
 
 ```bash
 npm run dev
 ```
 
-Frontend will run on
+The frontend will run on:
 
 ```
 http://localhost:5173
@@ -175,29 +194,18 @@ http://localhost:5173
 
 # Functionalities
 
-✔ User Signup
-
-✔ User Login
-
-✔ Add Category
-
-✔ Add Sub Category
-
-✔ Add Product
-
-✔ Edit Product
-
-✔ Multiple Product Variants
-
-✔ Wishlist
-
-✔ Search Products
-
-✔ Filter by Sub Category
-
-✔ Pagination
-
-✔ Responsive User Interface
+- ✔ User Signup
+- ✔ User Login
+- ✔ Add Category
+- ✔ Add Sub Category
+- ✔ Add Product
+- ✔ Edit Product
+- ✔ Multiple Product Variants
+- ✔ Wishlist
+- ✔ Search Products
+- ✔ Filter by Sub Category
+- ✔ Pagination
+- ✔ Responsive User Interface
 
 ---
 
@@ -213,15 +221,21 @@ http://localhost:5173
 
 # Environment Variables
 
-Backend `.env`
+Create a `.env` file inside the backend folder.
 
 ```env
 PORT=5000
-
 MONGO_URI=your_mongodb_connection_string
-
 JWT_SECRET=your_secret_key
 ```
+
+---
+
+# Deployment
+
+- **Frontend:** Vercel
+- **Backend:** Render
+- **Database:** MongoDB Atlas
 
 ---
 
@@ -244,8 +258,9 @@ JWT_SECRET=your_secret_key
 
 # Notes
 
-- This project follows the MVC Architecture.
-- Backend is developed using Express.js.
-- MongoDB is used as the database.
-- Product images are stored inside the uploads folder.
-- Multiple product variants are supported.
+- The project follows the **MVC (Model-View-Controller)** architecture.
+- The backend is developed using **Node.js** and **Express.js**.
+- **MongoDB** is used as the database with **Mongoose**.
+- Product images are stored in the **uploads** folder.
+- Each product supports multiple variants with separate RAM, price, and quantity.
+- JWT is used for secure user authentication.
