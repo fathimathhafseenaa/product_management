@@ -11,35 +11,33 @@ import AddProduct from "./pages/AddProduct/AddProduct";
 
 function App() {
   return (
-  
-      <Routes>
+    <Routes>
 
-        {/* Login */}
-        <Route path="/" element={<Login />} />
+      {/* Home */}
+      <Route path="/" element={<Home />} />
 
-        {/* Signup */}
-        <Route path="/signup" element={<Signup />} />
+      {/* Login */}
+      <Route path="/login" element={<Login />} />
 
-        {/* Home */}
-        <Route path="/home" element={<Home />} />
+      {/* Signup */}
+      <Route path="/signup" element={<Signup />} />
 
-        {/* Product Details */}
-        <Route path="/product/:id" element={<ProductDetails />} />
+      {/* Product Details */}
+      <Route path="/product/:id" element={<ProductDetails />} />
 
-        {/* Wishlist */}
-        <Route path="/wishlist" element={<Wishlist />} />
+      {/* Wishlist */}
+      <Route path="/wishlist" element={<Wishlist />} />
 
-        {/* Add Category */}
-        <Route path="/add-category" element={<AddCategory />} />
+      {/* Add Category */}
+      <Route path="/add-category" element={<AddCategory />} />
 
-        {/* Add Sub Category */}
-        <Route path="/add-subcategory" element={<AddSubCategory />} />
+      {/* Add Sub Category */}
+      <Route path="/add-subcategory" element={<AddSubCategory />} />
 
-        {/* Add Product */}
-        <Route path="/add-product" element={<AddProduct />} />
+      {/* Add Product */}
+      <Route path="/add-product" element={<AddProduct />} />
 
-      </Routes>
-
+    </Routes>
   );
 }
 
