@@ -1,6 +1,6 @@
-const handleSubmit = async()=>{
+const handleSubmit = async () => {
 
-  try{
+  try {
 
     setLoading(true);
 
@@ -32,7 +32,7 @@ const handleSubmit = async()=>{
 
 
     // Multiple Images Upload
-    images.forEach((image)=>{
+    images.forEach((image) => {
 
       formData.append(
         "image",
@@ -45,7 +45,10 @@ const handleSubmit = async()=>{
     const res = await addProduct(formData);
 
 
-    console.log(res.data);
+    console.log(
+      "Product Added:",
+      res.data
+    );
 
 
     alert("Product Added Successfully");
@@ -54,18 +57,21 @@ const handleSubmit = async()=>{
     onClose();
 
 
-  }
-  catch(error){
+  } catch (error) {
 
-    console.log(error);
+    console.log(
+      "Add Product Error:",
+      error
+    );
+
 
     alert(
       error.response?.data?.message ||
       "Product Add Failed"
     );
 
-  }
-  finally{
+
+  } finally {
 
     setLoading(false);
 
