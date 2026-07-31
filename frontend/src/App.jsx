@@ -7,7 +7,7 @@ import ProductDetails from "./pages/ProductDetails/ProductDetails";
 import Wishlist from "./pages/whishlist/Wishlist";
 import AddCategory from "./pages/AddCategory/AddCategory";
 import AddSubCategory from "./pages/AddSubCategory/AddSubCategory";
-import AddProduct from "./pages/Addproduct/AddProduct";
+import AddProduct from "./pages/AddProduct/AddProduct";
 
 function App() {
   return (
