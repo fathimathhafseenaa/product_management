@@ -80,11 +80,11 @@ export default function ItemsPanel({ open = true, onClose }) {
             items.map((item) => (
               <div className="ip-item" key={item._id}>
                 <div className="ip-thumb">
-                  <img
-                    src={`http://localhost:5000/uploads/${item.product.image}`}
-                    alt={item.product.productName}
-                    className="ip-thumb-img"
-                  />
+                 <img
+  src={`${import.meta.env.VITE_BACKEND_URL}/uploads/${item.product.image}`}
+  alt={item.product.productName}
+  className="ip-thumb-img"
+/>
                 </div>
 
                 <div className="ip-item-info">
