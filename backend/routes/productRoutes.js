@@ -13,7 +13,7 @@ const {
 
 
 // Add Product
-router.post("/add", upload.single("image"), addProduct);
+router.post("/add", upload.single("image",5), addProduct);
 
 
 // Get Products
