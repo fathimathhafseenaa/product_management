@@ -279,11 +279,11 @@ export default function ProductListing() {
               {paginatedProducts.map((product) => (
                 <div className="pl-card" key={product._id}>
                   <div className="pl-card-top">
-                    <img
-                      src={`http://localhost:5000/uploads/${product.image}`}
-                      alt={product.productName}
-                      className="pl-product-image"
-                    />
+                   <img
+  src={`${import.meta.env.VITE_BACKEND_URL}/uploads/${product.image}`}
+  alt={product.productName}
+  className="pl-product-image"
+/>
 
                     <button
                       className="pl-heart"
