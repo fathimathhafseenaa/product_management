@@ -1,0 +1,114 @@
+* {
+  box-sizing: border-box;
+}
+
+.asc-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Segoe UI', Roboto, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Light dim so the page behind stays visible */
+.asc-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(60, 60, 60, 0.35);
+}
+
+.asc-modal {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 380px;
+  background: #fff;
+  border: 2px solid #2f6bd6;
+  border-radius: 10px;
+  padding: 28px 32px;
+  text-align: center;
+}
+
+.asc-heading {
+  font-size: 17px;
+  font-weight: 600;
+  color: #222;
+  margin: 0 0 20px;
+}
+
+.asc-input {
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px 14px;
+  font-size: 13px;
+  outline: none;
+  color: #333;
+  margin-bottom: 14px;
+  text-align: left;
+}
+
+.asc-input:focus {
+  border-color: #2f6bd6;
+}
+
+.asc-select {
+  background: #fff;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='6'><path d='M0 0 L5 6 L10 0 Z' fill='%23999'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 30px;
+  color: #333;
+}
+
+.asc-actions {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+.asc-add-btn {
+  background: #f2a516;
+  color: #fff;
+  border: none;
+  padding: 10px 28px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+}
+
+.asc-add-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.asc-discard-btn {
+  background: #444;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+}
+
+.asc-discard-btn:hover {
+  background: #333;
+}
+
+@media (max-width: 420px) {
+  .asc-modal {
+    max-width: 90vw;
+    padding: 24px 20px;
+  }
+}

@@ -1,0 +1,330 @@
+.ep-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.ep-backdrop {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.45);
+}
+
+
+
+
+.ep-modal {
+
+  position: relative;
+  background: #ffffff;
+  width: 520px;
+  max-height: 90vh;
+  overflow-y: auto;
+
+  padding: 30px;
+
+  border-radius: 15px;
+
+  box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+
+  animation: modalOpen 0.3s ease;
+
+}
+
+
+
+@keyframes modalOpen {
+
+  from {
+
+    transform: translateY(-30px);
+    opacity: 0;
+
+  }
+
+  to {
+
+    transform: translateY(0);
+    opacity: 1;
+
+  }
+
+}
+
+
+
+
+
+.ep-modal h2 {
+
+  text-align: center;
+
+  margin-bottom: 25px;
+
+  font-size: 26px;
+
+  color: #222;
+
+}
+
+
+
+
+
+.ep-modal label {
+
+  display: block;
+
+  font-size: 14px;
+
+  font-weight: 600;
+
+  margin-bottom: 8px;
+
+  color: #444;
+
+}
+
+
+
+
+
+.ep-input {
+
+  width: 100%;
+
+  height: 42px;
+
+  border: 1px solid #ddd;
+
+  border-radius: 8px;
+
+  padding: 0 12px;
+
+  margin-bottom: 18px;
+
+  font-size: 14px;
+
+  outline: none;
+
+}
+
+
+
+
+
+.ep-input:focus {
+
+  border-color: #2563eb;
+
+}
+
+
+
+
+
+
+.ep-variant {
+
+  display: flex;
+
+  gap: 10px;
+
+  margin-bottom: 12px;
+
+}
+
+
+
+
+
+.ep-small {
+
+  width: 33.33%;
+
+  height: 38px;
+
+  border: 1px solid #ddd;
+
+  border-radius: 7px;
+
+  padding: 8px;
+
+  outline: none;
+
+}
+
+
+
+
+
+.ep-small:focus {
+
+  border-color: #2563eb;
+
+}
+
+
+
+
+
+
+
+input[type="file"] {
+
+  width: 100%;
+
+  margin-bottom: 20px;
+
+  padding: 8px;
+
+  border: 1px dashed #aaa;
+
+  border-radius: 8px;
+
+}
+
+
+
+
+
+
+
+.ep-actions {
+
+  display: flex;
+
+  justify-content: flex-end;
+
+  gap: 15px;
+
+  margin-top: 25px;
+
+}
+
+
+
+
+
+
+.ep-update-btn {
+
+  background: #2563eb;
+
+  color: white;
+
+  border: none;
+
+  padding: 12px 25px;
+
+  border-radius: 8px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+}
+
+
+
+
+
+.ep-update-btn:hover {
+
+  background: #1d4ed8;
+
+}
+
+
+
+
+
+.ep-cancel-btn {
+
+  background: #f1f1f1;
+
+  color: #333;
+
+  border: none;
+
+  padding: 12px 25px;
+
+  border-radius: 8px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+}
+
+
+
+
+
+.ep-cancel-btn:hover {
+
+  background: #ddd;
+
+}
+
+
+
+
+
+
+/* Mobile Responsive */
+
+@media(max-width:600px){
+
+
+  .ep-modal {
+
+    width: 90%;
+
+    padding: 20px;
+
+  }
+
+
+
+  .ep-variant {
+
+    flex-direction: column;
+
+  }
+
+
+
+  .ep-small {
+
+    width: 100%;
+
+  }
+
+
+
+  .ep-actions {
+
+    flex-direction: column;
+
+  }
+
+
+
+  .ep-update-btn,
+  .ep-cancel-btn {
+
+    width: 100%;
+
+  }
+
+
+}

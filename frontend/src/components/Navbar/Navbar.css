@@ -1,0 +1,87 @@
+* {
+  box-sizing: border-box;
+}
+
+.pl-navbar {
+  background: #0f3f5c;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 32px;
+  width: 100%;
+  font-family: 'Segoe UI', Roboto, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.pl-search-wrap {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  max-width: 420px;
+  width: 100%;
+}
+
+.pl-search-input {
+  border: none;
+  outline: none;
+  padding: 8px 16px;
+  flex: 1;
+  font-size: 13px;
+}
+
+.pl-search-btn {
+  background: #f2a516;
+  color: #fff;
+  border: none;
+  padding: 8px 22px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.pl-nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  color: #fff;
+  font-size: 13px;
+}
+
+.pl-nav-link {
+  cursor: pointer;
+}
+
+.pl-nav-link:hover {
+  text-decoration: underline;
+}
+
+.pl-wishlist-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.pl-wishlist-badge {
+  background: #f2a516;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  min-width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 4px;
+  line-height: 1;
+}
+
+@media (max-width: 500px) {
+  .pl-navbar {
+    flex-direction: column;
+    gap: 10px;
+    padding: 14px 16px;
+  }
+}

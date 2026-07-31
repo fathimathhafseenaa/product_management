@@ -1,0 +1,299 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  background: #0e0e0e;
+}
+
+.pd-page {
+  min-height: 100vh;
+  width: 100%;
+  background: #0e0e0e;
+  font-family: 'Segoe UI', Roboto, -apple-system, BlinkMacSystemFont, sans-serif;
+  padding: 10px 16px 24px;
+}
+
+.pd-container {
+  width: 100%;
+  background: #fff;
+  border-radius: 6px;
+  overflow: hidden;
+  min-height: calc(100vh - 20px);
+}
+
+/* Navbar */
+.pd-navbar {
+  background: #0f3f5c;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 32px;
+}
+
+.pd-search-wrap {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  max-width: 420px;
+  width: 100%;
+}
+
+.pd-search-input {
+  border: none;
+  outline: none;
+  padding: 8px 16px;
+  flex: 1;
+  font-size: 13px;
+}
+
+.pd-search-btn {
+  background: #f2a516;
+  color: #fff;
+  border: none;
+  padding: 8px 22px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.pd-nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #fff;
+  font-size: 13px;
+}
+
+.pd-nav-icon {
+  margin-right: 2px;
+}
+
+.pd-nav-link {
+  margin-right: 16px;
+}
+
+/* Body */
+.pd-body {
+  padding: 20px 32px 40px;
+}
+
+.pd-breadcrumb {
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 24px;
+}
+
+.pd-content {
+  display: flex;
+  gap: 60px;
+  flex-wrap: wrap;
+}
+
+/* Gallery */
+.pd-gallery {
+  flex: 1;
+  min-width: 300px;
+  max-width: 420px;
+}
+
+.pd-main-image {
+  border: 2px solid #2f6bd6;
+  border-radius: 8px;
+  padding: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 260px;
+  margin-bottom: 16px;
+}
+
+.pd-main-img {
+  width: 100%;
+  max-width: 260px;
+  max-height: 220px;
+  object-fit: contain;
+}
+
+.pd-thumbs {
+  display: flex;
+  gap: 14px;
+}
+
+.pd-thumb {
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 14px;
+  flex: 1;
+  max-width: 130px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.pd-thumb-img {
+  width: 100%;
+  max-width: 90px;
+  max-height: 70px;
+  object-fit: contain;
+}
+
+/* Details */
+.pd-details {
+  flex: 1;
+  min-width: 280px;
+  padding-top: 4px;
+}
+
+.pd-name {
+  color: #0f3f5c;
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0 0 10px;
+}
+
+.pd-price {
+  font-size: 18px;
+  color: #333;
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+
+.pd-availability {
+  font-size: 13px;
+  color: #333;
+  margin-bottom: 6px;
+}
+
+.pd-instock {
+  color: #2e9e4a;
+  font-weight: 600;
+}
+
+.pd-stock-warning {
+  font-size: 12px;
+  color: #888;
+  margin-bottom: 20px;
+}
+
+.pd-divider {
+  border: none;
+  border-top: 1px solid #eee;
+  margin: 0 0 20px;
+}
+
+.pd-label {
+  font-size: 13px;
+  color: #333;
+  font-weight: 600;
+  margin-right: 12px;
+}
+
+.pd-ram-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.pd-ram-btn {
+  border: 1px solid #ccc;
+  background: #f4f5f6;
+  padding: 6px 14px;
+  font-size: 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  color: #333;
+}
+
+.pd-ram-btn-active {
+  border-color: #0f3f5c;
+  background: #e9edf1;
+  font-weight: 700;
+}
+
+.pd-qty-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.pd-qty-control {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.pd-qty-btn {
+  border: none;
+  background: #f4f5f6;
+  width: 28px;
+  height: 28px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.pd-qty-value {
+  width: 32px;
+  text-align: center;
+  font-size: 13px;
+}
+
+.pd-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.pd-edit-btn,
+.pd-buy-btn {
+  border: none;
+  padding: 12px 26px;
+  border-radius: 22px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  background: #f2a516;
+  color: #fff;
+}
+
+.pd-heart-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background: #f2f2f2;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+  .pd-content {
+    flex-direction: column;
+  }
+  .pd-gallery {
+    max-width: 100%;
+  }
+  .pd-navbar {
+    flex-direction: column;
+    gap: 10px;
+    padding: 14px 16px;
+  }
+  .pd-body {
+    padding: 20px 16px 40px;
+  }
+}
