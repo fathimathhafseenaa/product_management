@@ -3,9 +3,7 @@ import "./AddProduct.css";
 import { addProduct } from "../../services/productService";
 import { getSubCategories } from "../../services/subCategoryService";
 
-
 export default function AddProductModal({ open = true, onClose }) {
-
 
   const [title, setTitle] = useState("");
   const [subCategory, setSubCategory] = useState("");
@@ -22,122 +20,78 @@ export default function AddProductModal({ open = true, onClose }) {
     }
   ]);
 
-  const [image, setImage] = useState(null);
+  // Multiple images
+  const [images, setImages] = useState([]);
 
   const [loading, setLoading] = useState(false);
 
 
-
   useEffect(() => {
-
     fetchSubCategories();
-
   }, []);
 
 
-
   const fetchSubCategories = async () => {
-
     try {
-
       const res = await getSubCategories();
-
-      setSubCategories(
-        res.data.subCategories || []
-      );
-
+      setSubCategories(res.data.subCategories || []);
     }
-    catch (error) {
-
+    catch(error){
       console.log(error);
-
     }
-
   };
-
-
 
 
   const updateVariant = (id, field, value) => {
 
-    setVariants((prev) =>
-
-      prev.map((item) =>
-
+    setVariants((prev)=>
+      prev.map((item)=>
         item.id === id
-          ?
-          {
-            ...item,
-            [field]: value
-          }
-          :
-          item
-
+        ? {...item,[field]:value}
+        : item
       )
-
     );
 
   };
 
 
+  const changeQty = (id,value)=>{
 
-
-
-  const changeQty = (id, value) => {
-
-    setVariants((prev) =>
-
-      prev.map((item) =>
-
+    setVariants((prev)=>
+      prev.map((item)=>
         item.id === id
-          ?
-          {
+        ? {
             ...item,
-            qty: Math.max(0, item.qty + value)
+            qty: Math.max(0,item.qty+value)
           }
-          :
-          item
-
+        : item
       )
-
     );
 
   };
 
 
+  const addVariantRow = ()=>{
 
-
-
-  const addVariantRow = () => {
-
-    setVariants((prev) => [
-
+    setVariants((prev)=>[
       ...prev,
-
       {
-        id: Date.now(),
-        ram: "",
-        price: "",
-        qty: 1
+        id:Date.now(),
+        ram:"",
+        price:"",
+        qty:1
       }
-
     ]);
 
   };
 
 
 
+  const handleSubmit = async()=>{
 
-
-
-  const handleSubmit = async () => {
-
-
-    try {
-
+    try{
 
       setLoading(true);
-
 
       const formData = new FormData();
 
@@ -160,61 +114,52 @@ export default function AddProductModal({ open = true, onClose }) {
       );
 
 
-
       formData.append(
         "variants",
         JSON.stringify(variants)
       );
 
 
-
-      if (image) {
+      // Multiple Images
+      images.forEach((image)=>{
 
         formData.append(
-          "image",
+          "images",
           image
         );
 
-      }
-
-
+      });
 
 
 
       const res = await addProduct(formData);
 
-
       console.log(res.data);
 
-
       alert("Product Added Successfully");
-
 
       onClose();
 
 
     }
-    catch (error) {
+    catch(error){
 
       console.log(error);
 
       alert("Product Add Failed");
 
     }
-    finally {
+    finally{
 
       setLoading(false);
 
     }
 
-
   };
 
 
 
-
-
-  if (!open) return null;
+  if(!open) return null;
 
 
 
@@ -222,25 +167,20 @@ export default function AddProductModal({ open = true, onClose }) {
 
     <div className="ap-overlay">
 
-
       <div
         className="ap-backdrop"
         onClick={onClose}
       />
 
 
-
       <div className="ap-modal">
-
 
         <h2 className="ap-heading">
           Add Product
         </h2>
 
 
-
         <div className="ap-form">
-
 
 
           <div className="ap-row">
@@ -249,48 +189,37 @@ export default function AddProductModal({ open = true, onClose }) {
               Title :
             </label>
 
-
             <input
-              type="text"
               className="ap-input ap-input-wide"
               value={title}
-              onChange={(e) => setTitle(e.target.value)}
+              onChange={(e)=>setTitle(e.target.value)}
             />
 
           </div>
 
 
 
-
-
           <div className="ap-variants-block">
-
 
             <label className="ap-label">
               Variants :
             </label>
 
 
-
             {
-              variants.map((v) => (
-
+              variants.map((v)=>(
 
                 <div
                   className="ap-variant-row"
                   key={v.id}
                 >
 
-
-                  <span className="ap-sublabel">
-                    RAM:
-                  </span>
-
+                  <span>RAM:</span>
 
                   <input
                     className="ap-input ap-input-sm"
                     value={v.ram}
-                    onChange={(e) =>
+                    onChange={(e)=>
                       updateVariant(
                         v.id,
                         "ram",
@@ -300,16 +229,12 @@ export default function AddProductModal({ open = true, onClose }) {
                   />
 
 
-
-                  <span className="ap-sublabel">
-                    Price:
-                  </span>
-
+                  <span>Price:</span>
 
                   <input
                     className="ap-input ap-input-sm"
                     value={v.price}
-                    onChange={(e) =>
+                    onChange={(e)=>
                       updateVariant(
                         v.id,
                         "price",
@@ -319,44 +244,29 @@ export default function AddProductModal({ open = true, onClose }) {
                   />
 
 
+                  <span>QTY:</span>
 
-                  <span className="ap-sublabel">
-                    QTY:
-                  </span>
-
-
-
-                  <button
-                    onClick={() =>
-                      changeQty(v.id, -1)
-                    }
-                  >
+                  <button onClick={()=>
+                    changeQty(v.id,-1)
+                  }>
                     -
                   </button>
 
 
-                  <span>
-                    {v.qty}
-                  </span>
+                  <span>{v.qty}</span>
 
 
-                  <button
-                    onClick={() =>
-                      changeQty(v.id, 1)
-                    }
-                  >
+                  <button onClick={()=>
+                    changeQty(v.id,1)
+                  }>
                     +
                   </button>
 
 
-
                 </div>
 
-
               ))
-
             }
-
 
 
             <button
@@ -367,16 +277,11 @@ export default function AddProductModal({ open = true, onClose }) {
             </button>
 
 
-
           </div>
 
 
 
-
-
-
           <div className="ap-row">
-
 
             <label className="ap-label">
               Sub category :
@@ -386,7 +291,7 @@ export default function AddProductModal({ open = true, onClose }) {
             <select
               className="ap-input ap-input-wide"
               value={subCategory}
-              onChange={(e) =>
+              onChange={(e)=>
                 setSubCategory(e.target.value)
               }
             >
@@ -397,7 +302,7 @@ export default function AddProductModal({ open = true, onClose }) {
 
 
               {
-                subCategories.map((sub) => (
+                subCategories.map((sub)=>(
 
                   <option
                     key={sub._id}
@@ -417,9 +322,6 @@ export default function AddProductModal({ open = true, onClose }) {
 
 
 
-
-
-
           <div className="ap-row">
 
             <label className="ap-label">
@@ -430,7 +332,7 @@ export default function AddProductModal({ open = true, onClose }) {
             <input
               className="ap-input ap-input-wide"
               value={description}
-              onChange={(e) =>
+              onChange={(e)=>
                 setDescription(e.target.value)
               }
             />
@@ -439,22 +341,20 @@ export default function AddProductModal({ open = true, onClose }) {
 
 
 
-
-
-
-
           <div className="ap-row">
 
-
             <label className="ap-label">
-              Upload image:
+              Upload Images :
             </label>
 
 
             <input
               type="file"
-              onChange={(e) =>
-                setImage(e.target.files[0])
+              multiple
+              onChange={(e)=>
+                setImages(
+                  Array.from(e.target.files)
+                )
               }
             />
 
@@ -464,9 +364,6 @@ export default function AddProductModal({ open = true, onClose }) {
 
 
         </div>
-
-
-
 
 
 
@@ -481,10 +378,8 @@ export default function AddProductModal({ open = true, onClose }) {
 
             {
               loading
-                ?
-                "ADDING..."
-                :
-                "ADD"
+              ? "ADDING..."
+              : "ADD"
             }
 
           </button>
@@ -499,9 +394,7 @@ export default function AddProductModal({ open = true, onClose }) {
           </button>
 
 
-
         </div>
-
 
 
       </div>
